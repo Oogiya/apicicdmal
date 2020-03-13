@@ -26,4 +26,4 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return '<h1>' + GetAnimeByName("Made in Abyss") + '</h1>'
+    return '<h1>' + GetAnimeByName("fullmetal alchemist") + '</h1>'
