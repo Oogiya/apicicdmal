@@ -1,5 +1,8 @@
-# Project Name
-> Here goes your awesome project description!
+# StamAnime
+https://gentle-caverns-68263.herokuapp.com/
+> A simple project made with love (and TDD)
+> using MAL's unoffical api - Jikan to show top anime
+> and some precious info by given name
 
 ## Table of contents
 * [General info](#general-info)
@@ -12,35 +15,35 @@
 * [Contact](#contact)
 
 ## General info
-Add more general information about project. What the purpose of the project is? Motivation?
+Our project's goal is to aim towards a simple
+'app' to retrieve an anime's information as well as
+get the top animes out there for all the "Otakus" out there
 
 ## Technologies
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
+* Python 3.7
+* Circleci as CICD
+* TDD
+* Jikan's API
 
 ## Setup
-Describe how to install / setup your local environement / add link to demo version.
+Currently there's no exe or installation.
+
+You'll have to clone/download the project and
+run it through CLI
 
 ## Code Examples
-Show examples of usage:
-`put-your-code-here`
+Getting 'Made in Abyss' info
+`get_anime_by_name("made in abyss"):`
 
 ## Features
 List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+* Get anime information by given name
 
 To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+* Get top x animes by given x.
 
 ## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
-
-## Inspiration
-Add here credits. Project inspired by..., based on...
+_in progress_
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Created by Miyu, Yariv and Stav

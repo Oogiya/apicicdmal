@@ -19,7 +19,14 @@ def get_anime_by_name(name):
      """
     res = requests.get(API_LINK + "search/anime?q=" + name + "&page=1")
     res = json.loads(res.text)["results"][0]
-    return "Name: " + res["title"] + "\nEpisodes: " + str(res["episodes"])
+    is_airing = "Is Airing: No"
+    score = "Score: " + str(res["score"])
+    description = "Description: " + res["synopsis"]
+    episodes = "Episodes: " + str(res["episodes"])
+    anime_name = "Name: " + res["title"]
+    if res["airing"] == True:
+        is_airing = "Is Airing: Yes"
+    return anime_name + "\n" + episodes + "\n" + is_airing + "\n" + score + "\n" + description
 
 
 #res = requests.get(GetAnimeByName("One Piece"))
@@ -27,7 +34,7 @@ def get_anime_by_name(name):
 
 def main():
     """ Main Function """
-
+    print(get_anime_by_name("made in abyss"))
 
 
 if __name__ == '__main__':
