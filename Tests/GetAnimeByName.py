@@ -2,15 +2,8 @@ from deploy import GetAnimeByName, get_api_link
 import unittest
 from unittest.mock import Mock, patch
 
-# TODO
-#   Unit testing from 'GetAnimeByName'
-#   - lower letters
-#   - upper
-#   - combination
-#   - numbers
-#   - null
 
-class GetAnimeByNameTest(unittest.TestCase):
+class get_anime_by_name_test(unittest.TestCase):
     @patch('deploy.GetAnimeByName')
     def test_lowercase(self, mock_get):
         result = "Name: Made in Abyss\nEpisodes: 13"

@@ -1,23 +1,23 @@
-from jikanpy import Jikan
-import requests
+""" Whole body of the program, executes just about everything. """
 import json
+import requests
 import markdown
 from flask import Flask
 
-api_link = "https://api.jikan.moe/v3/"
+API_LINK = "https://api.jikan.moe/v3/"
 
-# TODO
-# 1 - Get anime by name
-# english name, status, episodes, aired, source, studio, score, ranked
-
-# 2 - Get top anime
-# 3 - get top by genre
 
 def get_api_link():
-    return api_link
+    """ Pass the api link to unit-tests """
+    return API_LINK
 
-def GetAnimeByName(name):
-    res = requests.get(api_link + "search/anime?q=" + name + "&page=1")
+
+def get_anime_by_name(name):
+    """
+        Using the api link provided by jikan, we manipulate the url to get the anime's
+        information from MAL
+     """
+    res = requests.get(API_LINK + "search/anime?q=" + name + "&page=1")
     res = json.loads(res.text)["results"][0]
     return "Name: " + res["title"] + "\nEpisodes: " + str(res["episodes"])
 
@@ -26,13 +26,15 @@ def GetAnimeByName(name):
 #
 
 def main():
-    f = open('README.md', 'r')
-    html = markdown.markdown(f.read())
-    print(html)
+    """ Main Function """
+    file = open('README.md', 'r')
+    html = markdown.markdown(file.read())
+    #print(html)
 
     app = Flask(__name__)
 
     @app.route('/')
+    # pylint: disable=unused-variable
     def index():
         return html
 
