@@ -1,3 +1,5 @@
+import sys
+sys.path.append(".")
 from deploy import get_anime_by_name, get_api_link
 import unittest
 from unittest.mock import Mock, patch
