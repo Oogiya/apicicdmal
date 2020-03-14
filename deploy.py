@@ -27,16 +27,19 @@ def get_anime_by_name(name):
 
 def main():
     """ Main Function """
-    file = open('README.md', 'r')
-    html = markdown.markdown(file.read())
-    #print(html)
 
-    app = Flask(__name__)
 
-    @app.route('/')
-    # pylint: disable=unused-variable
-    def index():
-        return html
 
 if __name__ == '__main__':
     main()
+
+# pylint: disable=invalid-name
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    """Readme to html"""
+    file = open('README.md', 'r')
+    html = markdown.markdown(file.read())
+    #print(html)
+    return html
