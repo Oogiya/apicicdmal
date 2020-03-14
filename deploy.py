@@ -36,7 +36,7 @@ def main():
     @app.route('/')
     # pylint: disable=unused-variable
     def index():
-        return html
+        return '<h1>test</h1>'
 
 if __name__ == '__main__':
     main()
