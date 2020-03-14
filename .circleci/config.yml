@@ -25,7 +25,8 @@ jobs:
             python3 deploy.py
             pylint deploy.py
             python3 Tests/GetAnimeByName.py
+            python3 Tests/GetTopAnime.py
             git push https://heroku:6f7a16f8-6a9d-41aa-9f43-9e5111e9acf2@git.heroku.com/gentle-caverns-68263.git master
             
             
-### Need to change heroku api to varibale ###
+### Need to change heroku api to variable ###

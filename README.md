@@ -6,12 +6,10 @@ https://gentle-caverns-68263.herokuapp.com/
 
 ## Table of contents
 * [General info](#general-info)
-* [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
 * [Status](#status)
-* [Inspiration](#inspiration)
 * [Contact](#contact)
 
 ## General info
@@ -35,12 +33,14 @@ run it through CLI
 Getting 'Made in Abyss' info
 `get_anime_by_name("made in abyss"):`
 
+Getting top first 50 animes
+`get_top_anime(1)`
+
 ## Features
 List of features ready and TODOs for future development
 * Get anime information by given name
+* Get top anime by given page number (page = 50 animes).
 
-To-do list:
-* Get top x animes by given x.
 
 ## Status
 _in progress_

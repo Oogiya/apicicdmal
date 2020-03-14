@@ -4,8 +4,30 @@ import requests
 import markdown
 from flask import Flask
 
+# pylint: disable=consider-using-enumerate
+
 API_LINK = "https://api.jikan.moe/v3/"
 
+class Anime:
+    """ Simple class for containing anime info
+    """
+    def __init__(self, name, episodes, rating):
+        """ Constructor
+        """
+        self.name = name
+        self.episodes = episodes
+        self.rating = rating
+
+    def get_anime(self):
+        """ get this. anime info
+        """
+        return {self.name, self.episodes, self.rating}
+
+    def print(self):
+        """ print anime info
+        """
+        # pylint: disable=line-too-long
+        print("Name: " + self.name + "\nEpisodes: " + self.episodes + "\nRating: " + self.rating + "\n\n\n")
 
 def get_api_link():
     """ Pass the api link to unit-tests """
@@ -29,14 +51,33 @@ def get_anime_by_name(name):
         is_airing = "Is Airing: Yes"
     return anime_name + "\n" + episodes + "\n" + is_airing + "\n" + score + "\n" + description
 
+def get_top_anime(page_num):
+    """
+        Get top anime by page.
+        page = 50 animes
+    """
+    top_anime = []
+    res = requests.get(API_LINK + "top/anime/" + str(page_num) + "/?page=" + str(page_num))
+    if res.status_code != 200:
+        return "error"
+    res = json.loads(res.text)["top"]
+
+    for i in range(len(res)):
+        top_anime.append(Anime(res[i]["title"], str(res[i]["episodes"]), str(res[i]["score"])))
+
+    return top_anime
 
 #res = requests.get(GetAnimeByName("One Piece"))
 #
 
 def main():
     """ Main Function """
-    print(get_anime_by_name("made in abyss"))
-
+    top = get_top_anime(1)
+    if top == "error":
+        print(top)
+    else:
+        for i in range(len(top)):
+            top[i].print()
 
 if __name__ == '__main__':
     main()
