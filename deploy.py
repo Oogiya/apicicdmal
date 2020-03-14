@@ -24,6 +24,7 @@ def get_anime_by_name(name):
     description = "Description: " + res["synopsis"]
     episodes = "Episodes: " + str(res["episodes"])
     anime_name = "Name: " + res["title"]
+    # pylint: disable=singleton-comparison
     if res["airing"] == True:
         is_airing = "Is Airing: Yes"
     return anime_name + "\n" + episodes + "\n" + is_airing + "\n" + score + "\n" + description
